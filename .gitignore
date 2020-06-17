@@ -3,6 +3,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,macos,code,jupyternotebooks,linux
 
 ### Code ###
+.vscode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
