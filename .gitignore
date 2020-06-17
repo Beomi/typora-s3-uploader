@@ -200,3 +200,6 @@ dmypy.json
 .pytype/
 
 # End of https://www.toptal.com/developers/gitignore/api/python,macos,code,jupyternotebooks,linux
+
+# DO NOT Upload config json :) 
+configs.json 
