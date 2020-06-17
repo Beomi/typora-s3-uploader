@@ -1,0 +1,9 @@
+{
+  "ACCESS_KEY": "AKIAYABCDWL6FVUJABCD",
+  "SECRET_KEY": "00000000/abCdeFgsLqf4Zed15qU4j27y0000000",
+  "BUCKET_NAME": "my-bucket",
+  "REGION_NAME": "ap-northeast-2",
+  "CDN_PREFIX": "https://mybucketcdn.cloudfront.net",
+  "S3_PREFIX": "img/",
+  "USE_RANDOM_HASH": true
+}

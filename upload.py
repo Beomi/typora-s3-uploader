@@ -8,7 +8,7 @@ import boto3
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CONFIGS = json.load(open(os.path.join(BASE_DIR, 'configs.json')))
 
-s3 = boto3.resource(
+s3 = boto3.client(
     's3',
     aws_access_key_id=CONFIGS['ACCESS_KEY'],
     aws_secret_access_key=CONFIGS['SECRET_KEY'],
@@ -32,15 +32,22 @@ def upload_file(
         s3_prefix='',
         cdn_prefix='',
         use_random_hash=False):
-    if use_random_hash:
-        s3_prefix += uuid4().hex[:6]
 
     filename = filename or os.path.basename(filepath)
-    s3.meta.client.upload_file(
-        filepath, CONFIGS['BUCKET_NAME'], s3_prefix + filename
+
+    if use_random_hash:
+        ext = filename.split('.')[-1]
+        f_head = '.'.join(filename.split('.')[:-1])
+        filename = '.'.join([f_head, uuid4().hex[:6], ext])
+
+    upload_path = f'{s3_prefix}{filename}'
+    s3.put_object(
+        Body=open(filepath, 'rb'),
+        Bucket=CONFIGS['BUCKET_NAME'],
+        Key=upload_path,
     )
     if cdn_prefix:
-        uploaded_url = cdn_prefix + s3_prefix + filename
+        uploaded_url = f'{cdn_prefix}/{s3_prefix}{filename}'
     else:
         uploaded_url = (
             f'https://s3-{CONFIGS["REGION_NAME"]}.amazonaws.com/{CONFIGS["BUCKET_NAME"]}/{s3_prefix}/{filename}'
