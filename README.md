@@ -18,6 +18,7 @@ git clone https://github.com/Beomi/typora-s3-uploader
 
 ```bash
 cd typora-s3-uploader
+chmod +x *.sh
 ./install.sh
 ```
 
