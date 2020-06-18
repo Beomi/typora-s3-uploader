@@ -54,7 +54,8 @@ cp configs_example.json configs.json
 
 Add upload.sh file path to Typora like the screenshot below.
 
-![Add upload.sh file path to Typora](https://d1sr4ybm5bj1wl.cloudfront.net/img/typora/image-20200618134219753.791c08.png)
+![Add upload.sh file path to Typora](https://user-images.githubusercontent.com/11323660/84979524-94d72980-b16a-11ea-8e2b-e1e196f8e852.png)
+
 
 Example path:
 
