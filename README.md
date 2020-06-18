@@ -51,3 +51,13 @@ cp configs_example.json configs.json
 - (Optional) USE_RANDOM_HASH: Add Random(UUID4) strings to the end of your filename.
 
 5. Add script path information to Typora app.
+
+Add upload.sh file path to Typora like the screenshot below.
+
+![Add upload.sh file path to Typora](https://d1sr4ybm5bj1wl.cloudfront.net/img/typora/image-20200618134219753.791c08.png)
+
+Example path:
+
+```
+/Users/beomi/coding/typora-s3-uploader/upload.sh
+```
