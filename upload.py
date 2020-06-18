@@ -1,6 +1,7 @@
 import os.path
 from sys import argv
 from uuid import uuid4
+from pathlib import Path
 import json
 import boto3
 
@@ -41,6 +42,7 @@ def upload_file(
         filename = '.'.join([f_head, uuid4().hex[:6], ext])
 
     upload_path = f'{s3_prefix}{filename}'
+    filepath = Path(filepath)
     s3.put_object(
         Body=open(filepath, 'rb'),
         Bucket=CONFIGS['BUCKET_NAME'],
